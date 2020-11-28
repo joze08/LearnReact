@@ -34,7 +34,7 @@ Route.get('/show', 'ArtigoController.show');
 
 Route.put('/update', 'ArtigoController.update');
 
-//Route.delete('/delete', 'ArtigoController.destroy');
+Route.delete('/delete', 'ArtigoController.destroy');
 
 //USER
 
