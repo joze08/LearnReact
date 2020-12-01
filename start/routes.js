@@ -23,9 +23,22 @@ Route.get('/', () => {
 // STACK
 
 Route.get('/stacks', 'StackController.index');
+Route.get('/stackShow', 'StackController.show');
+
+//USER
+
+Route.post('/register', 'AuthController.register');
+Route.post('/authenticate', 'AuthController.authenticate');
 
 // ARTIGO
+Route.group(()=>{  
+  Route.resource('artigos', 'ArtigoController')
+  .apiOnly()
+  .except(['index', 'show'])
+}).middleware(['auth']);
 
+
+/*
 Route.get('/artigos', 'ArtigoController.index');
 
 Route.post('/store', 'ArtigoController.store');
@@ -35,14 +48,4 @@ Route.get('/show', 'ArtigoController.show');
 Route.put('/update', 'ArtigoController.update');
 
 Route.delete('/delete', 'ArtigoController.destroy');
-
-//USER
-
-Route.post('/register', 'AuthController.register');
-
-
-
-/*
-Route.group(()=>{  
-}).middleware(['auth']);
 */
