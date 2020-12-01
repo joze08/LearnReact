@@ -17,17 +17,17 @@ const Stack = use('App/Models/Stack')
 class StackSeeder {
   async run () {
     const stacks = [
-      {nomeStack: 'React'},
-      {nomeStack: 'JavaScript'},
-      {nomeStack: 'EcmaScript'},
-      {nomeStack: 'React-Native'},
-      {nomeStack: 'TypeScript'},
-      {nomeStack: 'C++'},
-      {nomeStack: 'C#'},
-      {nomeStack: 'COBOL'},
-      {nomeStack: 'Java'},
-      {nomeStack: 'Ruby'},
-      {nomeStack: 'Python'}
+      {nomestack: 'React'},
+      {nomestack: 'JavaScript'},
+      {nomestack: 'EcmaScript'},
+      {nomestack: 'React-Native'},
+      {nomestack: 'TypeScript'},
+      {nomestack: 'C++'},
+      {nomestack: 'C#'},
+      {nomestack: 'COBOL'},
+      {nomestack: 'Java'},
+      {nomestack: 'Ruby'},
+      {nomestack: 'Python'}
     ];
     await Stack.createMany(stacks);
   }
