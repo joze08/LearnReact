@@ -44,7 +44,7 @@ class ArtigoController {
    * @param {Response} ctx.response
    */
   async store ({ request, response }) {
-    const data = request.only(['idartigo', 'texto', 'stack_id']);
+    const data = request.only(['texto']);
     const artigo = await Artigo.create(data);
     return artigo;
   }
@@ -73,14 +73,8 @@ class ArtigoController {
    */
   async update ({ params, request, response }) {
     const artigo = await Artigo.FindOrFail(params.id);
-    const { texto, stack_id, user_id } = request.only([
-      'texto',
-      'stack_id',
-      'user_id'
-    ]);
+    const { texto } = request.only(['texto']);
     artigo.texto = texto;
-    artigo.stack_id = stack_id;
-    artigo.user_id = user_id;
     await artigo.save();
     return artigo;
   }
