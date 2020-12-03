@@ -59,7 +59,7 @@ class ArtigoController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    const artigo = await Artigo.FindOrFail(params.id);
+    const artigo = await Artigo.findOrFail(params.id);
     return artigo;
   }
 
@@ -72,7 +72,7 @@ class ArtigoController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response }) {
-    const artigo = await Artigo.FindOrFail(params.id);
+    const artigo = await Artigo.findOrFail(params.id);
     const { texto } = request.only(['texto']);
     artigo.texto = texto;
     await artigo.save();

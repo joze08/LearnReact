@@ -46,7 +46,7 @@ class StackController {
    * @param {View} ctx.view
    */
   async show ({ params, request, response, view }) {
-    const stack = await Stack.FindOrFail(params.id);
+    const stack = await Stack.findOrFail(params.id);
     return stack;
   }
 
