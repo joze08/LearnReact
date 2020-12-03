@@ -71,12 +71,16 @@ class ArtigoController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {
+  async update ({ params, request, response, auth }) {
     const artigo = await Artigo.findOrFail(params.id);
-    const { texto } = request.only(['texto']);
-    artigo.texto = texto;
-    await artigo.save();
-    return artigo;
+    if(artigo.user_id !== auth.user.id){
+      response.status(200).send("Mala você hein, hum");
+    }else{
+      const { texto } = request.only(['texto']);
+      artigo.texto = texto;
+      await artigo.save();
+      return artigo;
+    }
   }
 
   /**
