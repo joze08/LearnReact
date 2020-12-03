@@ -1,5 +1,7 @@
 'use strict'
 
+const { route } = require('@adonisjs/framework/src/Route/Manager');
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -36,6 +38,9 @@ Route.group(()=>{
   .apiOnly()
   .except(['index', 'show'])
 }).middleware(['auth']);
+
+Route.get('/artigos', 'ArtigoController.index');
+Route.get('/artigos/:id', 'ArtigoController.show')
 
 
 /*
