@@ -44,8 +44,8 @@ class ArtigoController {
    * @param {Response} ctx.response
    */
   async store ({ request, response, auth }) {
-    const {texto, stack_id, user_id} = request.only(['texto', 'stack_id', 'user_id']);
-    const artigo = await Artigo.create({texto, stack_id, user_id});
+    const {texto, stack_id} = request.only(['texto', 'stack_id']);
+    const artigo = await Artigo.create({texto, stack_id, user_id:auth.user.id});
     return artigo;
   }
 
